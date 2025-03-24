@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class ProductsService {
   movies: any = []
   favoriteMovies: any = []
+  searchResults: any = []
 
   constructor() { }
 
@@ -32,5 +33,10 @@ export class ProductsService {
       favoriteMovies = favoriteMovies.filter((favoriteMovie: any) => favoriteMovie.id !== movie.id)
       localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies))
     }
+  }
+
+  async searchMovieByName(movieTitle: String) {
+    await fetch(`https://api.bhcesh.me/list?token=eedefb541aeba871dcfc756e6b31c02e&sort=-views&name=${movieTitle}`).then(data => data.json()).then(data => this.searchResults = data.results)
+    return this.searchResults
   }
 }

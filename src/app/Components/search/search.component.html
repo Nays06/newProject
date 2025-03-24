@@ -1,0 +1,26 @@
+<div class="search">
+    <div class="search_input">
+        <div>
+            <input type="text" placeholder="Название фильма" [(ngModel)]="movieTitle" (keyup.enter)="search()">
+
+        <button (click)="search()">Поиск</button>
+        </div>
+    </div>
+
+    <div class="search_output">
+        @for (movie of searchOutput; track $index) {
+            <div class="movie">
+                <div class="movie-poster">
+                    <img [src]="movie.poster" alt="">
+                </div>
+                {{ movie.name }}
+
+                @if (!isFavorite(movie.id)) {
+                    <button style="background-color: red;" (click)="addMovieFavorite(movie)">Удалить из избранного</button>
+                } @else {
+                    <button (click)="addMovieFavorite(movie)">Добавить в избранное</button>
+                }
+            </div>
+        }
+    </div>
+</div>
