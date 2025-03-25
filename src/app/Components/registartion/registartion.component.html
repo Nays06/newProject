@@ -2,8 +2,10 @@
     <input type="text" placeholder="Логин" [(ngModel)]=" login">
     <input type="email" placeholder="Почта" [(ngModel)]=" email">
     <input type="password" placeholder="Пароль" [(ngModel)]=" password">
+    <button (click)="register()">Регистрация</button>
 
-    {{ login }}
-    {{ email }}
-    {{ password }}
+    <input type="text" placeholder="Логин" [(ngModel)]="logLogin">
+    <input type="password" placeholder="Пароль" [(ngModel)]="logPassword">
+    <button (click)="logIn()">Войти</button>
+
 </div>
