@@ -16,5 +16,13 @@ export class AccountService {
 
   loginUser(login: String, password: String){
     const allUser = JSON.parse(localStorage.getItem('allUsers') || '[]')
+    const user = allUser.find((user: any) => user.login === login && user.password === password)
+
+    if (user) {
+      alert("Yes")
+    } else {
+      alert("No")
+    }
+    
   }
 }

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ProductsService } from '../../Services/products.service';
+import { MovieCardComponent } from '../movie-card/movie-card.component';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [MovieCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

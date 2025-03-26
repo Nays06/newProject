@@ -26,7 +26,5 @@ export class RegistartionComponent {
 
     logIn(){
       this._accountService.loginUser(this.logLogin, this.logPassword)
-    }
-
-  
+    }  
 }

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ProductsService } from '../../Services/products.service';
 import { FormsModule } from '@angular/forms';
+import { MovieCardComponent } from '../movie-card/movie-card.component';
 
 @Component({
   selector: 'app-search',
-  imports: [FormsModule],
+  imports: [FormsModule, MovieCardComponent],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
