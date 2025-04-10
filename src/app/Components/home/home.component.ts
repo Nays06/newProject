@@ -13,15 +13,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent {
   private _productService: ProductsService;
-  // movies: any;
+  movies = signal<any>([])
   movieObject: any = {
     name: "",
     poster: "",
   }
 
   http = inject(HttpClient)
-
-  movies = signal<any>([])
 
   constructor(productService: ProductsService){
     this._productService = productService
@@ -57,13 +55,10 @@ export class HomeComponent {
     this.http.post("https://67c966760acf98d0708a1df9.mockapi.io/cars/cartoons", this.movieObject).subscribe((res: any) => {
       if(res.id){
         alert("Фильм добавлен")
-        this.movies.set([])
-        this.movies.set(this._productService.getMovies())
+        this.movies.update(movies => [...movies, this.movieObject])
       } else {
         alert("Произошла ошибка, попробуйте позже")
       }
     })
-    console.log(this.movies());
-    
   }
 }
