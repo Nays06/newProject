@@ -1,17 +1,13 @@
-<div class="movies">
-        @for (movie of movies.results; track $index) {
-            <!-- <div class="movie">
-                <div class="movie-poster">
-                    <img [src]="movie.poster" alt="">
-                </div>
-                {{ movie.name }}
+<div class="add-movie">
+    <input type="text" placeholder="Название мультфильма" [(ngModel)]="movieObject.name">
+    <input type="text" placeholder="Постер мультфильма" [(ngModel)]="movieObject.poster">
+    <button (click)="addMovie()">Добавить</button>
+</div>
 
-                @if (!isFavorite(movie.id)) {
-                    <button style="background-color: red;" (click)="addMovieFavorite(movie)">Удалить из избранного</button>
-                } @else {
-                    <button (click)="addMovieFavorite(movie)">Добавить в избранное</button>
-                }
-            </div> -->
+<div class="movies">
+<!-- {{ movies() }} -->
+
+        @for (movie of movies(); track $index) {
             <app-movie-card [movie]="movie"></app-movie-card>
         }
 </div>

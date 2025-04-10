@@ -11,9 +11,11 @@ export class ProductsService {
   constructor() { }
 
   async getMovies(){
-    let url = "https://api.bhcesh.me/list?token=eedefb541aeba871dcfc756e6b31c02e&sort=-views&limit=20&type=cartoon"
+    let url = "https://67c966760acf98d0708a1df9.mockapi.io/cars/cartoons"
 
     await fetch(url).then(data => data.json()).then(data => this.movies = data)
+    console.log(this.movies);
+    
     return this.movies
   }
 
