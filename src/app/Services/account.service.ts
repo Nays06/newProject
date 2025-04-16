@@ -1,31 +1,50 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
+  http = inject(HttpClient)
 
   constructor() {}
 
-  registerUser(login: String, email: String, password: String){
-    const allUsers = JSON.parse(localStorage.getItem('allUsers') || '[]');
+  registerUser(name: String, login: String, age: Number, email: String, password: String){
+    // const allUsers = JSON.parse(localStorage.getItem('allUsers') || '[]');
 
-    const loginExists = allUsers.some((user: any) => user.login === login);
-    const emailExists = allUsers.some((user: any) => user.email === email);
+    // const loginExists = allUsers.some((user: any) => user.login === login);
+    // const emailExists = allUsers.some((user: any) => user.email === email);
 
-    if (loginExists) {
-        alert("Логин уже занят");
-        return;
+    // if (loginExists) {
+    //     alert("Логин уже занят");
+    //     return;
+    // }
+
+    // if (emailExists) {
+    //     alert("Почта уже знята");
+    //     return;
+    // }
+
+    // allUsers.push({name, username: login, age, email, password});
+    // localStorage.setItem('allUsers', JSON.stringify(allUsers));
+
+    let user = {
+      name,
+      username: login,
+      age,
+      email,
+      password
     }
 
-    if (emailExists) {
-        alert("Почта уже знята");
-        return;
-    }
-
-    allUsers.push({login: login, email: email, password: password});
-    localStorage.setItem('allUsers', JSON.stringify(allUsers));
-    alert("Регистрация прошла успешно!");
+    this.http.post('http://localhost:5000/auth/registration', user).subscribe((res: any) => {
+      console.log(res);
+      
+      if (res.id) {
+        alert('Автомоб добавлен');
+      } else {
+        alert('Не получ добавить авто');
+      }
+    });
   }
 
   loginUser(login: String, password: String){
@@ -37,6 +56,5 @@ export class AccountService {
     } else {
       alert("Логин или пароль введены неверно")
     }
-    
   }
 }

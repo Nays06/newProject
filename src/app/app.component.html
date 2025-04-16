@@ -1,9 +1,9 @@
 <header>
   <nav>
-    <a routerLink="/" routerLinkActive="active" class="route">Главная</a>
-    <a routerLink="/favorites" routerLinkActive="active" class="route">Избранное</a>
-    <a routerLink="/search" routerLinkActive="active" class="route">Поиск</a>
-    <a routerLink="/registartion" routerLinkActive="active" class="route">Регистрация</a>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="route">Главная</a>
+    <a routerLink="/favorites" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="route">Избранное</a>
+    <a routerLink="/search" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="route">Поиск</a>
+    <a routerLink="/registartion" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="route">Регистрация</a>
   </nav>
 </header>
 

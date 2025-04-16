@@ -25,15 +25,10 @@ export class HomeComponent {
     this._productService = productService
 
     this.movies.set(productService.movies)
-
-    
-
-    console.log(this.movies());
   }
 
   async ngOnInit() {
   this.movies.set(await this._productService.getMovies())
-    console.log(this.movies);
   }
 
   addMovieFavorite(movie: any){
@@ -50,8 +45,6 @@ export class HomeComponent {
   }
 
   addMovie(){
-    console.log(this.movieObject.name, this.movieObject.poster);
-
     this.http.post("https://67c966760acf98d0708a1df9.mockapi.io/cars/cartoons", this.movieObject).subscribe((res: any) => {
       if(res.id){
         alert("Фильм добавлен")

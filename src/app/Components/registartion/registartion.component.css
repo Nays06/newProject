@@ -1,0 +1,57 @@
+  .registration,
+  .login {
+    background-color: #222;
+    color: #eee;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 650px;
+    margin: 20px auto;
+  }
+
+  input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 3px;
+    background-color: #333;
+    color: #eee;
+    outline: none;
+  }
+
+  input {
+    color: #999;
+  }
+
+  button {
+    background-color: rgb(13, 123, 248);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+
+  button:hover {
+    background-color: rgb(0, 109, 235);
+  }
+
+  div {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  mark {
+    background-color: transparent;
+    color: rgb(30, 135, 255);
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+  }
+
+  mark:hover {
+    color: rgb(62, 152, 255);
+  }

@@ -1,11 +1,16 @@
-<div class="registartion">
-    <input type="text" placeholder="Логин" [(ngModel)]=" login">
-    <input type="email" placeholder="Почта" [(ngModel)]=" email">
-    <input type="password" placeholder="Пароль" [(ngModel)]=" password">
-    <button (click)="register()">Регистрация</button>
+<div class="registration" *ngIf="authorazationMode === 'registration'">
+    <input type="text" placeholder="Имя" [(ngModel)]="name">
+    <input type="text" placeholder="Логин" [(ngModel)]="login">
+    <input type="number" placeholder="Возраст" [(ngModel)]="age">
+    <input type="email" placeholder="Почта" [(ngModel)]="email">
+    <input type="password" placeholder="Пароль" [(ngModel)]="password">
+    <button (click)="register()">Зарегистрироваться</button>
+    <div>Уже есть аккаунт? <mark (click)="authorazationMode = 'login'">Войти</mark></div>
+</div>
 
+<div class="login" *ngIf="authorazationMode === 'login'">
     <input type="text" placeholder="Логин" [(ngModel)]="logLogin">
     <input type="password" placeholder="Пароль" [(ngModel)]="logPassword">
     <button (click)="logIn()">Войти</button>
-
+    <div>Нету аккаунта? <mark (click)="authorazationMode = 'registration'">Зарегистрироваться</mark></div>
 </div>
