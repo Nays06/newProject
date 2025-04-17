@@ -28,23 +28,26 @@ export class AccountService {
     // allUsers.push({name, username: login, age, email, password});
     // localStorage.setItem('allUsers', JSON.stringify(allUsers));
 
-    let user = {
-      name,
-      username: login,
-      age,
-      email,
-      password
-    }
-
-    this.http.post('http://localhost:5000/auth/registration', user).subscribe((res: any) => {
-      console.log(res);
-      
-      if (res.id) {
-        alert('Автомоб добавлен');
-      } else {
-        alert('Не получ добавить авто');
+      let user = {
+        name,
+        username: login,
+        age,
+        email,
+        password
       }
-    });
+  
+      this.http.post('http://localhost:5000/auth/registration', user).subscribe({
+        next: (res: any) => {
+          console.log(res);
+          
+        },
+        error: (err) => {
+          console.error('HTTP errorrrrrrrrrrrrrr:', err.error.message || err.error.errors);
+        },
+        complete: () => {
+          console.log(123);
+        }
+      });
   }
 
   loginUser(login: String, password: String){
